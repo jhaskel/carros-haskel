@@ -1,7 +1,7 @@
 package com.carros;
 
-import com.carros.domain.Carro;
-import com.carros.domain.CarroService;
+import com.carros.domain.carros.Carro;
+import com.carros.domain.carros.CarroService;
 import com.carros.domain.dto.CarroDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;

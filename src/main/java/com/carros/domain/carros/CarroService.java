@@ -1,4 +1,4 @@
-package com.carros.domain;
+package com.carros.domain.carros;
 
 import com.carros.domain.dto.CarroDTO;
 import com.carros.domain.exception.ObjectNotFoundException;
