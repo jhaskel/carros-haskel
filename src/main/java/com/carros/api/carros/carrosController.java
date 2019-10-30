@@ -1,8 +1,5 @@
 package com.carros.api.carros;
 
-import com.carros.domain.carros.Carro;
-import com.carros.domain.carros.CarroService;
-import com.carros.domain.dto.CarroDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;

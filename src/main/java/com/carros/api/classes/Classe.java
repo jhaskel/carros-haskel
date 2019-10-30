@@ -1,8 +1,8 @@
-package com.carros.domain.user;
+package com.carros.api.classes;
+
 
 import lombok.*;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,15 +11,12 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Role implements GrantedAuthority {
+public class Classe {
     @Id //define chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    private String nome_classe;
+    private String created;
+    private String tipo;
 
-
-    @Override
-    public String getAuthority() {
-        return nome;
-    }
 }

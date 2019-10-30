@@ -1,47 +1,38 @@
 package com.carros;
 
-import com.carros.domain.carros.Carro;
-import com.carros.domain.carros.CarroService;
-import com.carros.domain.dto.CarroDTO;
+
+import com.carros.api.carros.Carro;
+import com.carros.api.carros.CarroDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-import static junit.framework.TestCase.*;
-import static org.assertj.core.api.Assertions.assertThat;
+import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = CarrosApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class CarrosAPITest {
-    @Autowired
-    protected TestRestTemplate rest;
-
-    @Autowired
-    private CarroService service;
+public class CarrosAPITest extends BaseAPITest {
 
     private ResponseEntity<CarroDTO> getCarro(String url) {
-        return
-                rest.getForEntity(url, CarroDTO.class);
+        return get(url, CarroDTO.class);
     }
 
     private ResponseEntity<List<CarroDTO>> getCarros(String url) {
+        HttpHeaders headers = getHeaders();
+
         return rest.exchange(
                 url,
                 HttpMethod.GET,
-                null,
+                new HttpEntity<>(headers),
                 new ParameterizedTypeReference<List<CarroDTO>>() {
                 });
     }
-
 
     @Test
     public void testSave() {
@@ -51,7 +42,7 @@ public class CarrosAPITest {
         carro.setTipo("esportivos");
 
         // Insert
-        ResponseEntity response = rest.postForEntity("/api/v1/carros", carro, null);
+        ResponseEntity response = post("/api/v1/carros", carro, null);
         System.out.println(response);
 
         // Verifica se criou
@@ -66,7 +57,7 @@ public class CarrosAPITest {
         assertEquals("esportivos", c.getTipo());
 
         // Deletar o objeto
-        rest.delete(location);
+        delete(location, null);
 
         // Verificar se deletou
         assertEquals(HttpStatus.NOT_FOUND, getCarro(location).getStatusCode());
@@ -96,6 +87,7 @@ public class CarrosAPITest {
         assertEquals(response.getStatusCode(), HttpStatus.OK);
 
         CarroDTO c = response.getBody();
+        assertNotNull(c);
         assertEquals("Ferrari FF", c.getNome());
     }
 

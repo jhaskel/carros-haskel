@@ -1,4 +1,4 @@
-package com.carros.domain.user;
+package com.carros.api.users;
 
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

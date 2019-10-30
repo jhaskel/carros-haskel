@@ -1,7 +1,6 @@
-package com.carros.domain.carros;
+package com.carros.api.carros;
 
-import com.carros.domain.dto.CarroDTO;
-import com.carros.domain.exception.ObjectNotFoundException;
+import com.carros.api.infra.exception.ObjectNotFoundException;
 import org.modelmapper.internal.util.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

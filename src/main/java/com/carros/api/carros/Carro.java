@@ -1,4 +1,4 @@
-package com.carros.domain.carros;
+package com.carros.api.carros;
 
 import lombok.*;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;

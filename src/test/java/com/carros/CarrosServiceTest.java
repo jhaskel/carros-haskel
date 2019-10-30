@@ -1,9 +1,9 @@
 package com.carros;
 
-import com.carros.domain.carros.Carro;
-import com.carros.domain.carros.CarroService;
-import com.carros.domain.dto.CarroDTO;
-import com.carros.domain.exception.ObjectNotFoundException;
+import com.carros.api.carros.Carro;
+import com.carros.api.carros.CarroService;
+import com.carros.api.carros.CarroDTO;
+import com.carros.api.infra.exception.ObjectNotFoundException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import static junit.framework.TestCase.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CarrosApplicationTests {
+public class CarrosServiceTest {
 
     @Autowired
     private CarroService service;
