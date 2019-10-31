@@ -1,7 +1,6 @@
 package com.carros.api.classes;
 
-import com.carros.api.carros.Carro;
-import com.carros.api.carros.CarroDTO;
+
 import com.carros.api.infra.exception.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

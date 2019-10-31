@@ -1,9 +1,9 @@
 package com.carros.api.infra.security.jwt;
 
-import com.carros.api.users.UserDTO;
 import com.carros.api.users.User;
+import com.carros.api.users.UserDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -11,7 +11,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.util.StringUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -74,5 +73,3 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
 
 }
-
-
